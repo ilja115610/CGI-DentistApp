@@ -16,4 +16,6 @@ public interface DentistVisitRepository extends JpaRepository<DentistVisitEntity
 
     @Query
     List<DentistVisitEntity> findByDentistName(String dentistName);
+
+
 }

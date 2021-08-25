@@ -30,7 +30,6 @@ public class DentistVisitService {
         boolean slotIsFree = checkTheSlot(requestedDate, requestedTime, dentist);
 
         if(slotIsFree) {
-
             DentistVisitEntity newVisit = new DentistVisitEntity(visit.getDentistName(),
                     visit.getDate(), visit.getTime(), visit.getPatientName(), visit.getComment());
 

@@ -4,7 +4,7 @@
 
 * Java 8
 
-* Spring Boot 2.4.2 (parent)
+* Spring Boot 2.4.2
 
 * H2 File Database
 
@@ -35,3 +35,9 @@ At the same page user can update or delete record - sending AJAX requests to ser
 ##
 
 User can navigate to a record detail view by clicking on a record in the table.
+
+##
+
+Application is dockerized and deployed to containers management system - OpenShift (RedHat)
+
+`http://dentist-115610-ilja115610-dev.apps.sandbox.x8i5.p1.openshiftapps.com/`
