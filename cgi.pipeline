@@ -27,7 +27,9 @@ pipeline {
                 steps {
                     parallel(
                             a: {
-                                sh 'timeout 30 docker run -p 127.0.0.1:8080:8080 --name dentist-app dentist'
+                                catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS'){
+                                    sh 'timeout 30 docker run -p 127.0.0.1:8080:8080 --name dentist-app dentist'
+                                }
                             },
                             b: {
                                 sh 'java -version'
