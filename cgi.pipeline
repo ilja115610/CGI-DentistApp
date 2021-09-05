@@ -27,11 +27,10 @@ pipeline {
                 steps {
                     parallel(
                             a: {
-                                sh 'docker run -p 127.0.0.1:8080:8080 --name dentist-app dentist'
+                                sh 'timeout 30 docker run -p 127.0.0.1:8080:8080 --name dentist-app dentist'
                             },
                             b: {
-                                sleep(45)
-                                sh 'docker kill --signal=SIGTERM dentist-app'
+                                sh 'java -version'
                             })
                 }
             }
