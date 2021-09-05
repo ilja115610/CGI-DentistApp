@@ -19,7 +19,7 @@ pipeline {
         stage ("create docker image") {
             steps {
                     echo "Starting build"
-                    sh 'docker -t dentist build .'
+                    sh 'docker -tag dentist build .'
             }
         }
             stage ("start container"){
