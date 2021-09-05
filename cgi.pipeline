@@ -25,9 +25,9 @@ pipeline {
             stage ("start container"){
                 steps {
                     sh 'docker run -p 127.0.0.1:8080:8080 dentist'
-                }
-                timeout(time: 1, unit: 'MINUTES') {
-                    sh 'docker kill $(docker ps -q)'
+                    timeout(time: 1, unit: 'MINUTES') {
+                        sh 'docker kill $(docker ps -q)'
+                    }
                 }
             }
         stage ("final stage"){
