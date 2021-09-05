@@ -12,15 +12,18 @@ pipeline {
 
     stages {
         stage("build maven artifact") {
-            sh 'mvn install'
+            steps{
+                sh 'mvn install'
+            }
         }
         stage ("create docker image") {
             steps {
-                step ("first step"){
+                step("first step") {
                     echo "Starting build"
                     sh 'docker -t dentist build .'
                 }
             }
+        }
             stage ("start container"){
                 steps {
                     sh 'docker run dentist -p 127.0.0.1:8080:8080'
@@ -28,4 +31,4 @@ pipeline {
             }
         }
     }
-}
+
