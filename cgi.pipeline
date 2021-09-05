@@ -31,7 +31,7 @@ pipeline {
                             },
                             b: {
                                 sleep(45)
-                                sh 'docker kill ----signal=SIGTERM dentist-app'
+                                sh 'docker kill --signal=SIGTERM dentist-app'
                             })
                 }
             }
