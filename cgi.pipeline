@@ -12,16 +12,14 @@ pipeline {
 
     stages {
         stage("build maven artifact") {
-            steps{
+            steps {
                 sh 'mvn install'
             }
         }
         stage ("create docker image") {
             steps {
-                step {
                     echo "Starting build"
                     sh 'docker -t dentist build .'
-                }
             }
         }
             stage ("start container"){
