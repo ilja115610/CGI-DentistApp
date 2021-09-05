@@ -28,10 +28,11 @@ pipeline {
                     parallel(
                             a: {
                                 sh 'docker run -p 127.0.0.1:8080:8080 --name dentist-app dentist'
+                                sleep(50)
+                                sh 'docker stop dentist-app'
                             },
                             b: {
-                                sleep(45)
-                                sh 'docker stop dentist-app'
+                                sh 'hostname'
                             })
                 }
             }
