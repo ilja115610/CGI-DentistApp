@@ -31,7 +31,7 @@ pipeline {
                             },
                             b: {
                                 sleep(45)
-                                sh 'docker stop dentist'
+                                sh 'docker stop dentist-app'
                             })
                 }
             }
