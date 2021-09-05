@@ -25,11 +25,12 @@ pipeline {
         }
             stage ("start container"){
                 options {
-                    timeout(time: 55, unit: "SECONDS")
+                    timeout(time: 100, unit: "SECONDS")
                 }
                 steps {
-                   catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED')
-                    sh 'docker run -p 127.0.0.1:8080:8080 dentist'
+                   catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED') {
+                       sh 'docker run -p 127.0.0.1:8080:8080 dentist'
+                   }
                 }
             }
         stage ("final stage"){
