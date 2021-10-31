@@ -1,19 +1,15 @@
 FROM alpine/git AS clone
-WORKDIR /app
 RUN git clone https://github.com/ilja115610/CGI-DentistApp.git
-RUN chgrp -R 0 /app && chmod -R g+rwX /app
 # Build stage
 FROM maven:3.6.0-jdk-8-slim AS build
-WORKDIR /app
-COPY --from=clone /app/CGI-DentistApp /app
+COPY --from=clone /CGI-DentistApp ./
 RUN mvn install
 
 #
 # Package stage
 #
 FROM openjdk:8-alpine
-WORKDIR /app
-COPY --from=build /app/target/dentistapp-1.0.jar /app
+COPY --from=build /target/dentistapp-1.0.jar ./
 EXPOSE 8080
-USER 1000
+USER 1001
 CMD java -jar dentistapp-1.0.jar
