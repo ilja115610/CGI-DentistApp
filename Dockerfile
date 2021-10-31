@@ -8,7 +8,7 @@ RUN mvn install
 #
 # Package stage
 #
-FROM openjdk:8-alpine
+FROM openjdk:8
 COPY --from=build /target/dentistapp-1.0.jar ./
 EXPOSE 8080
 USER 1001
