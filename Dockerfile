@@ -1,6 +1,7 @@
 FROM alpine/git AS clone
 WORKDIR /app
 RUN git clone https://github.com/ilja115610/CGI-DentistApp.git
+RUN chgrp -R 0 /app && chmod -R g+rwX /app
 # Build stage
 FROM maven:3.6.0-jdk-11-slim AS build
 WORKDIR /app
