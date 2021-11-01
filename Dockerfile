@@ -9,6 +9,7 @@ RUN mvn install
 # Package stage
 FROM openjdk:8
 WORKDIR /cgi
+COPY /cgi/target/dentistapp-1.0.jar /cgi
 EXPOSE 8080
 USER 1001
-CMD java -jar /target/dentistapp-1.0.jar
+CMD java -jar /cgi/dentistapp-1.0.jar
