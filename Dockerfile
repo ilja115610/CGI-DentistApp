@@ -9,6 +9,6 @@ RUN mvn install
 FROM openjdk:8
 USER root
 WORKDIR /cgi
-#COPY --from=build /cgi/target/dentistapp-1.0.jar /cgi
+COPY --from=build /cgi/target/dentistapp-1.0.jar .
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/target/dentistapp-1.0.jar"]
+ENTRYPOINT ["java", "-jar", "dentistapp-1.0.jar"]
