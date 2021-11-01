@@ -2,7 +2,6 @@
 FROM maven:3.6.0-jdk-8-slim AS build
 COPY . /cgi
 ENV HOME /cgi
-USER 1001
 WORKDIR /cgi
 # Set permissions to the /go folder (for OpenShift)
 RUN chgrp -R 0 /cgi && chmod -R g+rwX /cgi
