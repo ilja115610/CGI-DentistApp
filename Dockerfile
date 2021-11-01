@@ -11,4 +11,4 @@ FROM openjdk:8
 WORKDIR /cgi
 EXPOSE 8080
 USER 1001
-CMD java -jar /cgi/target/dentistapp-1.0.jar
+CMD java -jar /target/dentistapp-1.0.jar
