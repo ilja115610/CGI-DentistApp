@@ -7,7 +7,8 @@ RUN chgrp -R 0 /cgi && chmod -R g+rwX /cgi
 RUN mvn install
 # Package stage
 FROM openjdk:8
+USER root
 WORKDIR /cgi
-COPY --from=build /cgi/target/dentistapp-1.0.jar /cgi
+#COPY --from=build /cgi/target/dentistapp-1.0.jar /cgi
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "dentistapp-1.0.jar"]
+ENTRYPOINT ["java", "-jar", "/cgi/target/dentistapp-1.0.jar"]
