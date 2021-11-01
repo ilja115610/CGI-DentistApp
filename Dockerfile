@@ -11,4 +11,4 @@ USER root
 WORKDIR /cgi
 #COPY --from=build /cgi/target/dentistapp-1.0.jar /cgi
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/cgi/target/dentistapp-1.0.jar"]
+ENTRYPOINT ["java", "-jar", "/target/dentistapp-1.0.jar"]
