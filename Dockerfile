@@ -12,4 +12,4 @@ WORKDIR /cgi
 ENV HOME /cgi
 COPY --from=build /cgi/target/dentistapp-1.0.jar /cgi
 EXPOSE 8080
-ENTRYPOINT java -jar dentistapp-1.0.jar
+CMD java -jar dentistapp-1.0.jar
