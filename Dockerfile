@@ -10,4 +10,4 @@ FROM openjdk:8
 WORKDIR /cgi
 COPY --from=build /cgi/target/dentistapp-1.0.jar /cgi
 EXPOSE 8080
-CMD java -jar dentistapp-1.0.jar
+ENTRYPOINT ["java", "-jar", "dentistapp-1.0.jar"]
