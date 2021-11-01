@@ -10,6 +10,7 @@ RUN mvn install
 FROM openjdk:8
 WORKDIR /cgi
 ENV HOME /cgi
+VOLUME /tmp
 COPY --from=build /cgi/target/dentistapp-1.0.jar /cgi
 EXPOSE 8080
 CMD java -jar dentistapp-1.0.jar
